@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Format Agência — Branding</title>
+<meta name="description" content="Projetos de Branding para tirar a sua marca do comum. +400 marcas criadas ao longo de 7 anos.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Format Agência — Branding">
+<meta property="og:description" content="Projetos de Branding para tirar a sua marca do comum.">
+
+<style>
+  /* ============================================
+     FORMAT AGÊNCIA · LINK NA BIO
+     Helvetica Now · Black & White · Mobile-first
+     ============================================ */
+
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: local('Helvetica Now Display'), local('HelveticaNowDisplay');
+    font-weight: 300 900;
+    font-display: swap;
+  }
+
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :root {
+    --bg: #000000;
+    --fg: #ffffff;
+    --muted: rgba(255, 255, 255, 0.5);
+    --line: rgba(255, 255, 255, 0.12);
+    --btn-secondary-bg: rgba(255, 255, 255, 0.06);
+    --btn-secondary-border: rgba(255, 255, 255, 0.18);
+    --font: 'Helvetica Now Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--safe-top) + 28px) 24px calc(var(--safe-bottom) + 28px);
+    position: relative;
+  }
+
+  /* Sutil gradiente radial para dar profundidade — estilo Apple */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.04), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255,255,255,0.025), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Grain texture sutil */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+  }
+
+  /* ============================================
+     HEADER · Logo
+     ============================================ */
+  header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.1s forwards;
+  }
+
+  .logo {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--fg);
+  }
+
+  /* ============================================
+     MAIN · Hero + CTAs
+     ============================================ */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 560px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 48px 0;
+  }
+
+  .hero {
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 9vw, 44px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--fg);
+    opacity: 0;
+    animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+  }
+
+  .hero h1 .accent {
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: -0.03em;
+  }
+
+  .divider {
+    width: 28px;
+    height: 1px;
+    background: var(--line);
+    margin: 28px auto;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.55s forwards;
+  }
+
+  .proof {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+    color: var(--muted);
+    max-width: 320px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+  }
+
+  /* ============================================
+     CTAs
+     ============================================ */
+  .actions {
+    margin-top: 56px;
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 58px;
+    padding: 0 24px;
+    font-family: var(--font);
+    font-size: 15.5px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.4s ease;
+    opacity: 0;
+    will-change: transform;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+    transition: transform 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--fg);
+    color: var(--bg);
+    animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 0 6px rgba(255,255,255,0.08);
+  }
+
+  .btn-secondary {
+    background: var(--btn-secondary-bg);
+    color: var(--fg);
+    border-color: var(--btn-secondary-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.28);
+  }
+
+  .btn .arrow {
+    margin-left: 10px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .btn:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  .btn-microtext {
+    display: block;
+    text-align: center;
+    font-size: 11.5px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 1.15s forwards;
+  }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+  footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 1.3s forwards;
+  }
+
+  footer a {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  footer a:hover {
+    color: var(--fg);
+  }
+
+  /* ============================================
+     ANIMATIONS
+     ============================================ */
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  @media (min-width: 480px) {
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 52px);
+    }
+    .proof {
+      font-size: 15px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    body {
+      padding: 40px 32px;
+    }
+    main {
+      padding: 24px 0;
+    }
+  }
+
+  /* Telas muito pequenas (iPhone SE etc.) */
+  @media (max-height: 700px) {
+    main {
+      padding: 24px 0;
+    }
+    .actions {
+      margin-top: 36px;
+    }
+    .divider {
+      margin: 22px auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">FORMAT</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>
+        Projetos de <span class="accent">Branding</span><br>
+        para tirar a sua marca<br>
+        do comum.
+      </h1>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <p class="proof">
+        + de 400 marcas criadas ao longo de 7 anos,<br>
+        no Brasil e no mundo.
+      </p>
+    </section>
+
+    <div class="actions">
+      <a href="https://form.respondi.app/QboY7LLq"
+         class="btn btn-primary"
+         target="_blank"
+         rel="noopener">
+        Solicitar orçamento
+        <span class="arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7H13M13 7L7.5 1.5M13 7L7.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <a href="https://wa.me/5532991382684?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram%20e%20quero%20saber%20mais%20sobre%20projeto%20de%20branding."
+         class="btn btn-secondary"
+         target="_blank"
+         rel="noopener">
+        Falar no WhatsApp
+        <span class="arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7H13M13 7L7.5 1.5M13 7L7.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <span class="btn-microtext">Resposta em até 24h · Diagnóstico gratuito</span>
+    </div>
+  </main>
+
+  <footer>
+    <a href="https://instagram.com/formatagencia" target="_blank" rel="noopener">@formatagencia</a>
+  </footer>
+
+</body>
+</html>
